@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AppUserDaoImplTest {
 
     @Autowired
-    AppUser AppUserDao;
+    AppUserDao appUserDao;
 
     @Test
     public void create (){
@@ -24,7 +24,7 @@ class AppUserDaoImplTest {
 
         user.setUsername("User123");;
 
-        AppUserDao.create(user);
+        appUserDao.create(user);
 
         assertNotNull(user);
     }
