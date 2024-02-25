@@ -1,5 +1,6 @@
 package se.lexicon.jpaworkshopproject.Dao;
 
+
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,27 +8,29 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import se.lexicon.jpaworkshopproject.entity.AppUser;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @Transactional
 @Rollback
+
+
 class AppUserDaoImplTest {
 
     @Autowired
     AppUserDao appUserDao;
 
     @Test
-    public void create (){
+    public void testPersistAppUser(){
 
-        AppUser user =new AppUser();
+        AppUser appUser =new AppUser("Manprit","test");
+        AppUser persistedAppUser = appUserDao.persist(appUser);
 
-        user.setUsername("User123");;
+        assertNotNull(persistedAppUser);
 
-        appUserDao.create(user);
-
-        assertNotNull(user);
     }
+
+
 
 
 }
