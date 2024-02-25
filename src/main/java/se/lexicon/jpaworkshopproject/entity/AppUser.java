@@ -28,7 +28,7 @@ public class AppUser {
     private LocalDate regdate;
 
     @Setter
-    @OneToOne
+    @OneToOne(cascade =CascadeType.PERSIST) // using a casecade here first add the detail data then fetch with appuser.
     @JoinColumn(name="details_id")
     private Details details;
 

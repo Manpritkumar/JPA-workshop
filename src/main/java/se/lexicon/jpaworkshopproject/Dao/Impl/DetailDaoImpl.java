@@ -3,11 +3,13 @@ package se.lexicon.jpaworkshopproject.Dao.Impl;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Component;
 import se.lexicon.jpaworkshopproject.Dao.DetailsDao;
 import se.lexicon.jpaworkshopproject.entity.Details;
 
 import java.util.Collection;
 
+@Component
 public class DetailDaoImpl implements DetailsDao {
 
     @PersistenceContext

@@ -1,10 +1,7 @@
 package se.lexicon.jpaworkshopproject.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -12,16 +9,17 @@ import java.time.LocalDate;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = "appUser")
 @Entity
 
 public class Details {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)   //add this mean autoincrement the id
     private int detailsId;
 
     @Setter
-    @Column(unique = true)
+    @Column(unique = true)  // unique mean email always be unique
     private String email;
 
     @Setter
@@ -30,11 +28,11 @@ public class Details {
     @Setter
     private LocalDate birthdate;
 
-    @OneToOne(mappedBy = "details")
+    @OneToOne(mappedBy = "details")    // mapped by using to make the owner to app user to show the detail id in the appuser database
     private AppUser appUser;
 
-    public Details(int detailsId, String email, String name) {
-        this.detailsId = detailsId;
+    public Details( String email, String name) {
+
         this.email = email;
         this.name = name;
 
