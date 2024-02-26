@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +16,7 @@ public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  appUserid;
+    private int appUserid;
 
     @Setter
     @Column(nullable = false,length = 100,unique = true)
@@ -32,6 +34,8 @@ public class AppUser {
     @JoinColumn(name="details_id")
     private Details details;
 
+    @OneToMany(mappedBy ="borrower")
+    private List<BookLoan> loans;
     
 
     public AppUser( String username, String password ) {

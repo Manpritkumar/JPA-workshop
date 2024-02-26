@@ -17,7 +17,7 @@ import java.util.Set;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bookId;
 
 
@@ -43,5 +43,18 @@ public class Book {
         this.isbn = isbn;
         this.title = title;
         this.maxLoanDays = maxLoanDays;
+    }
+
+    //Convenience methods added
+
+    public void addAuthor(Author author) {
+        authors.add(author);
+        author.getWrittenBooks().add(this);
+    }
+
+    public void removeAuthor(Author author) {
+        authors.remove(author);
+        author.getWrittenBooks().remove(this);
+
     }
 }

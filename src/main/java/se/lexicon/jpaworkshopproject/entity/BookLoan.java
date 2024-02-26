@@ -32,7 +32,7 @@ public class BookLoan {
 
     @Setter
     @ManyToOne
-    @JoinColumn(name="app_user_id")
+    @JoinColumn(name = "app_user_id")
     private AppUser borrower;
 
     @Setter
