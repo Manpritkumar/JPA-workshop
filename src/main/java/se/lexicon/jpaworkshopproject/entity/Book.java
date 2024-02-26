@@ -32,7 +32,10 @@ public class Book {
 
     @Setter
     @Column(nullable = false)
-    private int maxLoanDays;
+    private int maxLoanDays =7;
+
+    @Column(nullable = true)
+    private boolean available;
 
     @Setter
     @ManyToMany
