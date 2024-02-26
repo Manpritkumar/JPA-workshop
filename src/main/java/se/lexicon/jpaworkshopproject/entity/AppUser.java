@@ -14,7 +14,7 @@ public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int appUserid;
+    private  appUserid;
 
     @Setter
     @Column(nullable = false,length = 100,unique = true)

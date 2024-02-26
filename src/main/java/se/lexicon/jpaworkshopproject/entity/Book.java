@@ -4,6 +4,8 @@ package se.lexicon.jpaworkshopproject.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,6 +34,10 @@ public class Book {
     @Column(nullable = false)
     private int maxLoanDays;
 
+    @Setter
+    @ManyToMany
+    @JoinColumn(name = "author_id")
+    private Set<Author> authors;
 
     public Book(String isbn, String title, int maxLoanDays) {
         this.isbn = isbn;
